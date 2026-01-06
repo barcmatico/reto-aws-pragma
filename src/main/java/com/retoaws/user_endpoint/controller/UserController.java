@@ -31,4 +31,9 @@ public class UserController {
         return user.map(ResponseEntity::ok)
                    .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/test-error")
+    public String testError() {
+        throw new RuntimeException("¡Prueba de Alerta CloudWatch! ERROR Generado.");
+    }
 }
